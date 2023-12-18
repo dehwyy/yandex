@@ -56,15 +56,15 @@ def generate_level(level, tile_group, player_group, tile_images, player_image):
 
 def move(hero, level_map, movement):
     x, y = hero.pos
-    if movement == "up":
-        if y > 0 and level_map[y - 1][x] == ".":
+    if movement == pygame.K_UP:
+        if y > 0 and level_map[y - 1][x] != "#":
             hero.move(x, y - 1)
-    elif movement == "down":
-        if y < max_y - 1 and level_map[y + 1][x] == ".":
+    elif movement == pygame.K_DOWN:
+        if y < max_y - 1 and level_map[y + 1][x] != "#":
             hero.move(x, y + 1)
-    elif movement == "left":
-        if x > 0 and level_map[y][x - 1] == ".":
+    elif movement == pygame.K_LEFT:
+        if x > 0 and level_map[y][x - 1] != "#":
             hero.move(x - 1, y)
-    elif movement == "right":
-        if x < max_x - 1 and level_map[y][x + 1] == ".":
+    elif movement == pygame.K_RIGHT:
+        if x < max_x - 1 and level_map[y][x + 1] != "#":
             hero.move(x + 1, y)
